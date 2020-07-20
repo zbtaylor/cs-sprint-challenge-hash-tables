@@ -6,9 +6,18 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    storage = {}
+    route = []
+    reconstructing = True
+    location = "NONE"
+
+    for t in tickets:
+        storage[t.source] = t.destination
+
+    while reconstructing:
+        if storage[location] == "NONE":
+            reconstructing = False
+        route.append(storage[location])
+        location = storage[location]
 
     return route
